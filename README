@@ -1,0 +1,7 @@
+Example:
+
+client = DevinoSms::Client.new('test', 'test')
+message_id = client.send('79051234567', 'TEST', 'Hello')
+client.state(message_id)
+client.income('01.01.2000', Time.now)
+client.balance
