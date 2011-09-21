@@ -71,9 +71,3 @@ module DevinoSms
     end
   end
 end
-
-client = DevinoSms::Client.new('prestoNew', 'presto0p')
-#puts client.send('79057776761', 'ZAKAZONLINE', 'Я тебя люблю!')
-puts client.income('01.01.2000', Time.now).count
-puts client.balance
-#puts client.state('W88B36CD5')
