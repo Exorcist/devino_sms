@@ -14,12 +14,11 @@ module DevinoSms
     end
 
     def send(destinationAddress, sourceAddress, message, sendDate = nil)
-      destinationAddress  = [destinationAddress] if destinationAddress.kind_of? String
-      query = build_query({'destinationAddress' => destinationAddress,
-                           'sendDate'           => sendDate,
-                           'data'               => message,
-                           'sourceAddress'      => sourceAddress,
-                           'validity'           => validity}, true)
+      query =  build_query({'sendDate'           => sendDate,
+                            'destinationAddress' => destinationAddress,
+                            'data'               => message,
+                            'sourceAddress'      => sourceAddress,
+                            'validity'           => validity}, true)
 
       response = session.post("Sms/Send", query)
       response.status == 200 ? JSON.parse(response.body) : raise(JSON.parse(response.body)['Desc'])
